@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-4"></div>
+        <div style="border-radius:10px;" class="col-4 shadow">
+            <div class="container">
+                <h1 class="text-center mt-2 ">To-Do-List</h1>
+                <input id="InputData" class="form-control mt-5" type="text">
+                <button onclick="addTask()" class="btn btn-success w-100 mt-2 mb-2">Add Task</button>
+                <div id="list1">
+                    <div class="d-flex justify-content-evenly" type="none" id="list">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <script>
+
+        function addTask() {
+            let inputData = document.getElementById("InputData").value
+           if(inputData.length>0){
+            let newItem = document.createElement('li')
+            newItem.innerHTML=inputData
+            newItem.style.width="50px"
+            // newItem.style.border="2px solid black"
+            newItem.style.marginRight="300px"
+            newItem.type="none"
+            let item1 =document.getElementById("list")
+            item1.style.border=".2px solid black"
+            item1.style.marginTop="10px"
+            item1.style.marginBottom="10px"
+            item1.appendChild(newItem)
+            // let getItem = document.getElementById("list1")
+            let btn=document.createElement("button")
+            btn.innerHTML=btn.innerHTML = "<i class=\"fa-solid fa-trash\" style=\"color: #0957dc;\"></i>"
+            btn.style.border="none"
+            btn.style.backgroundColor="white"
+            btn.onclick=function(){
+                item1.removeChild(newItem)
+            }
+            item1.appendChild(btn)
+            let btn2=document.createElement("button")             
+            btn2.innerHTML="<i class=\"fa-solid fa-pen\"style=\"color: #0957dc;\"></i>"
+            btn2.onclick=function(){
+                let value=prompt("Edit the text")
+                newItem.innerHTML=value
+            }
+            btn2.style.border="none"
+            btn2.style.backgroundColor="white"
+            item1.appendChild(btn2)
+           }
+           
+        }
+        function Edit(){
+            alert("fdhbf kjb")
+           }
+    </script>
+</body>
+
+</html>
